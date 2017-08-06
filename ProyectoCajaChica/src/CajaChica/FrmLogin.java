@@ -5,6 +5,7 @@
  */
 package CajaChica;
 
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
@@ -74,6 +75,11 @@ public class FrmLogin extends javax.swing.JFrame {
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 440, 120, -1));
 
         txtUser.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        txtUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtUserActionPerformed(evt);
+            }
+        });
         getContentPane().add(txtUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 350, 370, -1));
 
         cmbCargo.setFont(new java.awt.Font("Times New Roman", 0, 20)); // NOI18N
@@ -88,6 +94,12 @@ public class FrmLogin extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 530, 110, -1));
+
+        txtPassword.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtPasswordKeyPressed(evt);
+            }
+        });
         getContentPane().add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 440, 370, 30));
 
         jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 57)); // NOI18N
@@ -105,41 +117,97 @@ public class FrmLogin extends javax.swing.JFrame {
         if (cmbCargo.getSelectedIndex() == 1) {
             String user = txtUser.getText();
             String pass = txtPassword.getText();
-            
-            if (user.equals(DirecUser)) {
-                if (pass.equals(PassDirecUser)) {
+            if ("director".equals(txtUser.getText())) {
+                Conexion.setcuenta(user, pass);
+                Conexion.getConexion();
+                if (Conexion.getstatus()) {
                     FrmTransaccion newTra = new FrmTransaccion();
                     newTra.setVisible(true);
                     this.setVisible(false);
                 }else{
-                    JOptionPane.showMessageDialog(rootPane, "Contraseña Incorrecta");
+                    JOptionPane.showMessageDialog(rootPane, "Usuario o contraseña incorrecta");
                 }
             }else{
-                JOptionPane.showMessageDialog(rootPane, "Usuario Inocrrecto");
+                    JOptionPane.showMessageDialog(rootPane, "Usuario o contraseña incorrecta");
             }
-            
+
+
         }
         if (cmbCargo.getSelectedIndex() == 2) {
             String user = txtUser.getText();
             String pass = txtPassword.getText();
-            
-            if (user.equals(AdminUser)) {
-                if (pass.equals(PassAdminUser)) {
+
+            if ("administrador".equals(txtUser.getText())) {
+                Conexion.setcuenta(user, pass);
+                Conexion.getConexion();
+                if (Conexion.getstatus()) {
                     FrmTransaccion newTra = new FrmTransaccion();
                     newTra.setVisible(true);
                     this.setVisible(false);
                 }else{
-                    JOptionPane.showMessageDialog(rootPane, "Contraseña Incorrecta");
+                    JOptionPane.showMessageDialog(rootPane, "Usuario o contraseña incorrecta");
                 }
             }else{
-                JOptionPane.showMessageDialog(rootPane, "Usuario Inocrrecto");
+                    JOptionPane.showMessageDialog(rootPane, "Usuario o contraseña incorrecta");
             }
-            
+
+
         }
         if(cmbCargo.getSelectedIndex() == 0){
             JOptionPane.showMessageDialog(rootPane, "Por favor seleccione un cargo");
         }
     }//GEN-LAST:event_btnLoginActionPerformed
+
+    private void txtPasswordKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPasswordKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            if (cmbCargo.getSelectedIndex() == 1) {
+                String user = txtUser.getText();
+                String pass = txtPassword.getText();
+                if ("director".equals(txtUser.getText())) {
+                    Conexion.setcuenta(user, pass);
+                    Conexion.getConexion();
+                    if (Conexion.getstatus()) {
+                        FrmTransaccion newTra = new FrmTransaccion();
+                        newTra.setVisible(true);
+                        this.setVisible(false);
+                    }else{
+                        JOptionPane.showMessageDialog(rootPane, "Usuario o contraseña incorrecta");
+                    }
+                }else{
+                        JOptionPane.showMessageDialog(rootPane, "Usuario o contraseña incorrecta");
+                }
+                
+
+            }
+            if (cmbCargo.getSelectedIndex() == 2) {
+                String user = txtUser.getText();
+                String pass = txtPassword.getText();
+                
+                if ("administrador".equals(txtUser.getText())) {
+                    Conexion.setcuenta(user, pass);
+                    Conexion.getConexion();
+                    if (Conexion.getstatus()) {
+                        FrmTransaccion newTra = new FrmTransaccion();
+                        newTra.setVisible(true);
+                        this.setVisible(false);
+                    }else{
+                        JOptionPane.showMessageDialog(rootPane, "Usuario o contraseña incorrecta");
+                    }
+                }else{
+                        JOptionPane.showMessageDialog(rootPane, "Usuario o contraseña incorrecta");
+                }
+
+                
+            }
+            if(cmbCargo.getSelectedIndex() == 0){
+                JOptionPane.showMessageDialog(rootPane, "Por favor seleccione un cargo");
+            }
+        }
+    }//GEN-LAST:event_txtPasswordKeyPressed
+
+    private void txtUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUserActionPerformed
+        txtPassword.requestFocus();
+    }//GEN-LAST:event_txtUserActionPerformed
 
     /**
      * @param args the command line arguments
