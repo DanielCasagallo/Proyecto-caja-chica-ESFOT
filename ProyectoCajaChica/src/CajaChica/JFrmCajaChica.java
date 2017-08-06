@@ -10,15 +10,18 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
-
+import javax.swing.JFileChooser;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 
 /**
  *
  * @author Daniel
  */
 public class JFrmCajaChica extends javax.swing.JFrame {
-
+    private FileInputStream fis;
+    private int longitudBytes;
     /**
      * Creates new form JFrmCajaChica
      */
@@ -111,6 +114,11 @@ public class JFrmCajaChica extends javax.swing.JFrame {
         jLabel2.setText("Buscar Archivo");
 
         btnabrir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/CajaChica/Imagenes/folder_yellow_open.png"))); // NOI18N
+        btnabrir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnabrirActionPerformed(evt);
+            }
+        });
 
         jLabel3.setText("Nombre del archivo");
 
@@ -277,7 +285,6 @@ public class JFrmCajaChica extends javax.swing.JFrame {
                         .addComponent(cmbtipoarchivo, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnagregarsoli)
                         .addGap(18, 18, 18)
                         .addComponent(btnvisualizar)))
@@ -336,6 +343,15 @@ public class JFrmCajaChica extends javax.swing.JFrame {
         // TODO add your handling code here:
         panelsolicitud.setVisible(true);
     }//GEN-LAST:event_btnagregarsoliActionPerformed
+
+    private void btnabrirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnabrirActionPerformed
+        // TODO add your handling code here:
+        JFileChooser se = new JFileChooser();
+        se.setFileSelectionMode(JFileChooser.FILES_ONLY);       
+        int estado = se.showOpenDialog(null);
+       
+                    
+    }//GEN-LAST:event_btnabrirActionPerformed
 
     /**
      * @param args the command line arguments
