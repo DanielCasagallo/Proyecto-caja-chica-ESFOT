@@ -28,7 +28,7 @@ public class FrmConsulta extends javax.swing.JFrame {
     private void initComponents() {
 
         lblFondo = new javax.swing.JLabel();
-        btnRegresar = new javax.swing.JButton();
+        btnReposicion = new javax.swing.JButton();
         lblFondo1 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -37,16 +37,17 @@ public class FrmConsulta extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/CajaChica/Imagenes/FondoLogin.jpg"))); // NOI18N
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        btnRegresar.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
-        btnRegresar.setText("Hacer reposicion ");
-        btnRegresar.addActionListener(new java.awt.event.ActionListener() {
+        btnReposicion.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
+        btnReposicion.setText("Hacer reposicion ");
+        btnReposicion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRegresarActionPerformed(evt);
+                btnReposicionActionPerformed(evt);
             }
         });
 
@@ -69,6 +70,13 @@ public class FrmConsulta extends javax.swing.JFrame {
 
         jLabel7.setText("Detalles de Caja chica");
 
+        jButton1.setText("Regresar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -81,7 +89,6 @@ public class FrmConsulta extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(105, 105, 105)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnRegresar)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel6)
                                 .addGap(18, 18, 18)
@@ -94,7 +101,10 @@ public class FrmConsulta extends javax.swing.JFrame {
                                 .addGroup(layout.createSequentialGroup()
                                     .addComponent(jLabel1)
                                     .addGap(30, 30, 30)
-                                    .addComponent(jLabel2))))))
+                                    .addComponent(jLabel2)))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jButton1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnReposicion, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                 .addContainerGap(152, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
@@ -119,8 +129,10 @@ public class FrmConsulta extends javax.swing.JFrame {
                     .addComponent(jLabel6)
                     .addComponent(jLabel5))
                 .addGap(63, 63, 63)
-                .addComponent(btnRegresar)
-                .addContainerGap(153, Short.MAX_VALUE))
+                .addComponent(btnReposicion)
+                .addGap(32, 32, 32)
+                .addComponent(jButton1)
+                .addContainerGap(96, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addComponent(lblFondo1, javax.swing.GroupLayout.PREFERRED_SIZE, 446, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -130,12 +142,19 @@ public class FrmConsulta extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
+    private void btnReposicionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReposicionActionPerformed
         // TODO add your handling code here:
         FrmReposicion regresar = new FrmReposicion();
         regresar.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_btnRegresarActionPerformed
+    }//GEN-LAST:event_btnReposicionActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        FrmTransaccion regresar = new FrmTransaccion();
+        regresar.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -174,7 +193,8 @@ public class FrmConsulta extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnRegresar;
+    private javax.swing.JButton btnReposicion;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
