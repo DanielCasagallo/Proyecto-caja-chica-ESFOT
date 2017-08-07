@@ -30,7 +30,7 @@ public class FrmTransaccion extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        cmbTransaccion = new javax.swing.JComboBox<>();
+        cmbTransaccion = new javax.swing.JComboBox<String>();
         jLabel2 = new javax.swing.JLabel();
         btnIngresar = new javax.swing.JButton();
         btnRegresar = new javax.swing.JButton();
@@ -42,7 +42,7 @@ public class FrmTransaccion extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         cmbTransaccion.setFont(new java.awt.Font("Times New Roman", 0, 25)); // NOI18N
-        cmbTransaccion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione una transaccion", "Solicitud", "Aprobacion", "Declaracion compra" }));
+        cmbTransaccion.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione una transaccion", "Solicitud", "Aprobacion", "Declaracion compra", "Consulta" }));
         cmbTransaccion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbTransaccionActionPerformed(evt);
@@ -104,6 +104,12 @@ public class FrmTransaccion extends javax.swing.JFrame {
             
         }
         if (cmbTransaccion.getSelectedIndex() == 3) {
+            FrmCompra newCom = new FrmCompra();
+            newCom.setVisible(true);
+            this.setVisible(false);
+            
+        }
+        if (cmbTransaccion.getSelectedIndex() == 4) {
             FrmCompra newCom = new FrmCompra();
             newCom.setVisible(true);
             this.setVisible(false);
