@@ -1,4 +1,4 @@
-use FACTURACION2
+use CajaChicaESFOT
 
 /*********************************************
 ****CREACION LOGIN ADMINISTRADOR**************
@@ -6,7 +6,8 @@ use FACTURACION2
 
 create login administrador
 with password = 'esfot',
-default_database=FACTURACION2
+default_database=CajaChicaESFOT
+GO
 
 
 /**********************************************
@@ -17,6 +18,7 @@ default_database=FACTURACION2
 create user administrador
 for login administrador
 with default_schema = mi_esquema
+GO
 
 
 /***********************************************
@@ -25,6 +27,7 @@ with default_schema = mi_esquema
 
 
 create schema mi_esquema authorization administrador;
+GO
 
 
 /***************************************************
@@ -33,6 +36,7 @@ create schema mi_esquema authorization administrador;
 
 
 GRANT CREATE PROC,EXECUTE,CREATE TABLE,CREATE ROLE, SELECT, INSERT, UPDATE, DELETE TO administrador;
+GO
 
 
 
@@ -42,7 +46,8 @@ GRANT CREATE PROC,EXECUTE,CREATE TABLE,CREATE ROLE, SELECT, INSERT, UPDATE, DELE
 
 create login director
 with password = 'esfot',
-default_database = FACTURACION2
+default_database = CajaChicaESFOT
+GO
 
 
 /**********************************************
@@ -53,6 +58,7 @@ default_database = FACTURACION2
 create user director
 for login director
 with default_schema = mi_esquema2
+GO
 
 
 /***********************************************
@@ -61,7 +67,7 @@ with default_schema = mi_esquema2
 
 
 create schema mi_esquema2 authorization director;
-
+GO
 
 /***************************************************
 ****CREACION DE PRIVILEGIOS PARA DIRECTOR******
@@ -69,3 +75,4 @@ create schema mi_esquema2 authorization director;
 
 
 GRANT CREATE PROC,EXECUTE,CREATE TABLE,CREATE ROLE, SELECT, INSERT, UPDATE, DELETE TO director;
+GO
